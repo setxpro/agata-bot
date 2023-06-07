@@ -9,8 +9,11 @@ import qrcode from "qrcode";
 import delay from "./functions/delay";
 import fs from "fs";
 import { initialDialog, secondDialog } from "./dialog";
+import { EventEmitter } from "stream";
 
 const app = express();
+const emitter = new EventEmitter();
+emitter.setMaxListeners(100)
 
 // SERVIÇO EXPRESS
 app.use(express.json());
